@@ -33,18 +33,18 @@ class ViewConcertListingTest extends TestCase
 
         // Act
         // View the concert listing
-        $this->visit('/concerts/'.$concert->id);
+        $view = $this->get('/concerts/'.$concert->id);
 
         // Assert
         // see the concert details
-        $this->see('Sample Title');
-        $this->see('Sample Subtitle');
-        $this->see('December 13, 2016');
-        $this->see('8:00pm');
-        $this->see('32.50');
-        $this->see('Sample Venue',);
-        $this->see('123 Sample Address');
-        $this->see('Some City, ON 12345');
-        $this->see('For tickets, call (555) 555-5555.');
+        $view->assertSee('Sample Title');
+        $view->assertSee('Sample Subtitle');
+        $view->assertSee('December 13, 2016');
+        $view->assertSee('8:00pm');
+        $view->assertSee('32.50');
+        $view->assertSee('Sample Venue',);
+        $view->assertSee('123 Sample Address');
+        $view->assertSee('Some City, ON 12345');
+        $view->assertSee('For tickets, call (555) 555-5555.');
     }
 }
