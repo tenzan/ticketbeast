@@ -16,6 +16,8 @@ class ViewConcertListingTest extends TestCase
     /** @test */
     function user_can_view_a_concert_listing()
     {
+        $this->withoutExceptionHandling();
+
         // Arrange
         // Create a concert
         $concert = Concert::create([
